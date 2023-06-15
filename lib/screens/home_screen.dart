@@ -244,26 +244,26 @@ class _HomeScreenState extends State<HomeScreen> {
             delegate: SliverChildBuilderDelegate(
               (context,index){
                 return Container(
-                    height: 60,
-                    child: ListTile(
-                      leading: Icon(Icons.monetization_on),
-                      title: Text(
-                        'Transaction',
+                  height: 60,
+                  child: ListTile(
+                    leading: Icon(Icons.monetization_on),
+                    title: Text(
+                      'Transaction',
                         style: TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      subtitle: Text('Date'),
-                      trailing: Text(
-                        'Rs100',
-                        style: TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.green,
-                        ),
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
+                    subtitle: Text('Date'),
+                    trailing: Text(
+                      'Rs100',
+                      style: TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.green,
+                      ),
+                    ),
+                  ),
                 );
               }
             ),
