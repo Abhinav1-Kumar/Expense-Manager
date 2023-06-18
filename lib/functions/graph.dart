@@ -18,7 +18,7 @@ class _GraphState extends State<Graph> {
           primaryXAxis: CategoryAxis(),
           series: <SplineSeries<SalesData,String>>[
             SplineSeries<SalesData,String>(
-                color: Colors.blue,
+              color: Colors.blue,
                 width: 3,
                 dataSource:<SalesData>[
                   SalesData(100, 'Mon'),
