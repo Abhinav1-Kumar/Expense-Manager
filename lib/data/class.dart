@@ -1,9 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class trans{
   String? name;
   String? amount;
-  String? time;
+  Timestamp? time;
   String? image;
   bool? credit;
+  trans(this.name,this.amount,this.time,this.credit,this.image);
 }
 
 class User{
@@ -14,9 +17,4 @@ class User{
     'name': name,
     'email' :email,
   };
-
-  // static User fromJson(Map<String,dynamic> json)=>User(
-  //   name:json['name'],
-  //   email:json['email'],
-  // )
 }
