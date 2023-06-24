@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import '../data/database.dart';
 import '../screens/sign_up_screen.dart';
+
 
 Row signUpOption(BuildContext context) {
   return Row(
@@ -24,13 +27,14 @@ Row signUpOption(BuildContext context) {
 
 
 TextField reusableTextField(String text, IconData icon, bool isPasswordType,
-    TextEditingController controller) {
+    TextEditingController controller,String error) {
   return TextField(
     controller: controller,
     obscureText: isPasswordType,
     enableSuggestions: !isPasswordType,
     autocorrect: !isPasswordType,
     cursorColor: Colors.white,
+
     style: TextStyle(color: Colors.white.withOpacity(0.9)),
     decoration: InputDecoration(
       prefixIcon: Icon(
@@ -42,6 +46,11 @@ TextField reusableTextField(String text, IconData icon, bool isPasswordType,
       filled: true,
       floatingLabelBehavior: FloatingLabelBehavior.never,
       fillColor: Colors.white.withOpacity(0.3),
+      errorText: error==""?null:error,
+      errorBorder: const OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.red, width: 2,),
+          borderRadius: BorderRadius.all(Radius.circular(30))
+      ),
       border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30.0),
           borderSide: const BorderSide(width: 0, style: BorderStyle.none)),
