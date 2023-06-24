@@ -38,8 +38,55 @@ class DatabaseManager{
   }
 
 
+    void transList(String uid,String name,int amount,bool credit,DateTime date) async{
+      CollectionReference ref=FirebaseFirestore.instance.collection('profileInfo');
+      ref.doc(uid).collection('transactions').add({
+        'name':name,
+        'amount':amount,
+        'credit':credit,
+        'time':date,
+        'image':'up.png',
+      });
+    }
 
+    Future get_trans() async{
+      var t=await FirebaseFirestore.instance.collection('profileInfo').doc(FirebaseAuth.instance.currentUser!.uid).collection('transactions').get();
+      return t;
+    }
+    Future<void> initialise() async {
+      total_income = 0;
+      total_expense = 0;
+      var t = await FirebaseFirestore.instance.collection('profileInfo').doc(
+          FirebaseAuth.instance.currentUser!.uid)
+          .collection('transactions')
+          .orderBy('time')
+          .get();
+      for (var i = 0; i < t.docs.length; i++) {
+        if (t.docs.elementAt(i).get('credit')) {
+          total_income =
+              total_income + int.parse(t.docs.elementAt(i).get('amount').toString());
+        }
+        else {
+          total_expense =
+              total_expense + int.parse(t.docs.elementAt(i).get('amount').toString());
+        }
+      }
+    }
 
+    Future<QuerySnapshot<Map<String, dynamic>>> getDb() async {
+      var db =  await FirebaseFirestore.instance
+          .collection('profileInfo')
+          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .collection('transactions')
+          .orderBy('time',descending: true)
+          .get();
+      return db;
+    }
 }
 
+class SalesData{
+  SalesData(this.sales,this.year);
+  final DateTime year;
+  int sales;
+}
 
