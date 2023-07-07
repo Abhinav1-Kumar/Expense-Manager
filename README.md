@@ -1,6 +1,15 @@
-# expense_manager
+## expense_manager
 
-A new Flutter project.
+A simple application designed to simplify the tracking of your day to day expenses using graph.
+
+## Tech Stack
+* Flutter
+* Firebase
+* Firestore
+
+## Features
+* Login/SignUp using Email.
+* Hourly, Daily, Weekly and Monthly graphs of income and expenses. 
 
 ## Getting Started
 
