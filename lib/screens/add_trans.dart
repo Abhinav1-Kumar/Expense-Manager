@@ -120,7 +120,7 @@ class _AddTransState extends State<AddTrans> {
                                       ),
                                       SizedBox(width: 10,),
                                       Text(
-                                        'name',
+                                        e,
                                         style: TextStyle(fontSize: 18,),
                                       )
                                     ],
@@ -140,7 +140,7 @@ class _AddTransState extends State<AddTrans> {
                                 ],
                               )).toList(),
                           hint: Text(
-                            _uid!,
+                            "Name",
                             style: TextStyle(color: Colors.grey),
                           ),
                           underline: Container(),
