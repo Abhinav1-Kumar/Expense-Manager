@@ -1,5 +1,6 @@
 import 'package:expense_manager/data/database.dart';
 import 'package:expense_manager/screens/home_screen.dart';
+import 'package:expense_manager/screens/sign_in_screen.dart';
 // import 'package:expense_manager/screens/sign_in_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -153,7 +154,7 @@ class _SignUpState extends State<SignUp> {
           .then((value) {
         DatabaseManager().createUserData(_userNameTextController.text, _emailTextController.text, FirebaseAuth.instance.currentUser!.uid);
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => HomeScreen()));
+            MaterialPageRoute(builder: (context) => SignIn()));
       });
       // Navigator.push(context,MaterialPageRoute(builder: (context)=>HomeScreen()));
     } on FirebaseAuthException catch (error) {

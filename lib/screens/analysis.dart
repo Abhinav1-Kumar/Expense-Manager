@@ -344,7 +344,7 @@ class _AnalysisState extends State<Analysis> {
                           });
                         },
                         child: Icon(
-                          Icons.account_balance_wallet_outlined,
+                          Icons.home,
                           size: 30,
                           color: index_color == 2 ? const Color(0xff368983) : Colors.grey,
                         ),
@@ -356,7 +356,7 @@ class _AnalysisState extends State<Analysis> {
                           });
                         },
                         child: Icon(
-                          Icons.person_outlined,
+                          Icons.bar_chart_outlined,
                           size: 30,
                           color: index_color == 3 ? const Color(0xff368983) : Colors.grey,
                         ),
