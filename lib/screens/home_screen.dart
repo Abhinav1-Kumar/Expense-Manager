@@ -3,6 +3,7 @@ import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expense_manager/screens/analysis.dart';
+import 'package:expense_manager/screens/sign_in_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -165,7 +166,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           });
                         },
                         child: Icon(
-                          Icons.account_balance_wallet_outlined,
+                          Icons.home,
                           size: 30,
                           color: index_color == 2 ? const Color(0xff368983) : Colors.grey,
                         ),
@@ -179,7 +180,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           });
                         },
                         child: Icon(
-                          Icons.person_outlined,
+                          Icons.bar_chart_outlined,
                           size: 30,
                           color: index_color == 3 ? const Color(0xff368983) : Colors.grey,
                         ),
@@ -219,16 +220,36 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Stack(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(top:35,left:10 ),
+                        padding: const EdgeInsets.only(top:35,left:15,right: 15 ),
                         child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Good afternoon',
-                              style: TextStyle(
-                                fontWeight:FontWeight.w500,
-                                fontSize: 20,
-                                color:Colors.white,
-                              ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Good afternoon',
+                                  style: TextStyle(
+                                    fontWeight:FontWeight.w500,
+                                    fontSize: 20,
+                                    color:Colors.white,
+                                  ),
+                                ),
+                                GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).pushAndRemoveUntil(
+                                      MaterialPageRoute(
+                                          builder: (context) => const SignIn()),
+                                          (Route<dynamic> route) => false);
+                                },
+                                  child: Icon(
+                                    Icons.logout,
+                                    size: 30,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ]
                             ),
                             SizedBox(height: 10,),
                             Text(
