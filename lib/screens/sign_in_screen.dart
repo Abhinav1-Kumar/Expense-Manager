@@ -1,7 +1,6 @@
 import 'dart:core';
 
 import 'package:expense_manager/screens/analysis.dart';
-import 'package:expense_manager/widgets/bottom_nav_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 

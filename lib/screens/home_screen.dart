@@ -3,9 +3,9 @@ import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expense_manager/screens/analysis.dart';
-import 'package:expense_manager/widgets/bottom_nav_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+// import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../data/class.dart';
 import '../data/database.dart';
@@ -52,6 +52,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    double h=800/MediaQuery.of(context).size.height;
+    double w=800/MediaQuery.of(context).size.height;
     return StreamBuilder(
         stream: FirebaseFirestore
             .instance
@@ -79,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
               body: CustomScrollView(
                 physics: BouncingScrollPhysics(),
                 slivers: [
-                  head(snapshot),
+                  head(snapshot,h,w),
                   mid(),
                   SliverList(
                     delegate: SliverChildBuilderDelegate(
@@ -192,17 +194,17 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
 
-  SliverToBoxAdapter head(AsyncSnapshot snapshot){
+  SliverToBoxAdapter head(AsyncSnapshot snapshot,double h,double w){
     return SliverToBoxAdapter(
       child: Container(
-        height: 350,
+        height: 350*h,
         child: Stack(
           children: [
             Column(
               children: [
                 Container(
                   width: MediaQuery.of(context).size.width,
-                  height:200,
+                  height:200*h,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(colors: [
                       Color.fromRGBO(47, 80, 243, 1.0),
@@ -210,8 +212,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       Color.fromRGBO(43, 203, 203, 1.0),
                     ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
                     borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(20),
-                      bottomRight: Radius.circular(20),
+                      bottomLeft: Radius.circular(20*h),
+                      bottomRight: Radius.circular(20*h),
                     ),
                   ),
                   child: Stack(
@@ -249,8 +251,8 @@ class _HomeScreenState extends State<HomeScreen> {
               top: 140,
               left: 35,
               child: Container(
-                height: 170,
-                width: 320,
+                height: 170*h,
+                width: 320*w,
                 decoration: BoxDecoration(
                   color: Colors.blue,
                   borderRadius: BorderRadius.circular(15),
