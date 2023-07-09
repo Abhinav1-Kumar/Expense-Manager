@@ -8,9 +8,9 @@ A simple application designed to simplify the tracking of your day to day expens
 * Firestore
 
 ## Features
-* Login/SignUp using Email.
+* Login/SignUp by Email implemented using FirebaseAuth.
 * Hourly, Daily, Weekly and Monthly graphs of income and expenses. 
-
+* Database managed using Firestore.
 ## Screenshots
 ![WhatsApp Image 2023-07-09 at 5 27 24 PM (1)](https://github.com/Abhinav1-Kumar/Expense-Manager/assets/95129388/71c34735-a286-4e0c-b446-2779b6cb22d4)
 ![WhatsApp Image 2023-07-09 at 5 27 23 PM](https://github.com/Abhinav1-Kumar/Expense-Manager/assets/95129388/a68b3a55-b816-4f11-818a-82082ee30dfc)
