@@ -453,6 +453,17 @@ class _AnalysisState extends State<Analysis> {
       _yearI.add(SalesData(0, DateTime(t.year,i+1,4)));
       _yearE.add(SalesData(0, DateTime(t.year,i+1,4)));
     }
+
+    _dayI.sort((a, b) => a.year.hour.compareTo(b.year.hour));
+    _weekI.sort((a, b) => a.year.weekday.compareTo(b.year.weekday));
+    _monthI.sort((a, b) => a.year.day.compareTo(b.year.day));
+    _yearI.sort((a, b) => a.year.month.compareTo(b.year.month));
+
+    _dayE.sort((a, b) => a.year.hour.compareTo(b.year.hour));
+    _weekE.sort((a, b) => a.year.weekday.compareTo(b.year.weekday));
+    _monthE.sort((a, b) => a.year.day.compareTo(b.year.day));
+    _yearE.sort((a, b) => a.year.month.compareTo(b.year.month));
+
     for (var i = 0; i < snapshot.data.docs.length; i++) {
       DateTime d = snapshot.data.docs.elementAt(i).get('time').toDate();
       int a =snapshot.data.docs.elementAt(i).get('amount');
@@ -472,7 +483,7 @@ class _AnalysisState extends State<Analysis> {
           _weekI[d.weekday-1].sales=_weekI[d.weekday-1].sales + a;
         }
         if (d.day == t.day && d.month == t.month && d.year == t.year) {
-          _dayI[d.hour].sales=_dayE[d.hour].sales + a;
+          _dayI[d.hour].sales=_dayI[d.hour].sales + a;
         }
       }
       else{
