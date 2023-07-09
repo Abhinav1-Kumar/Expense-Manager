@@ -469,7 +469,7 @@ class _AnalysisState extends State<Analysis> {
         week = t.weekday;
         DateTime temp2=t.subtract(Duration(days: week));
         if (temp1.day==temp2.day && temp1.month==temp2.month && temp1.year==temp2.year) {
-          _weekI[d.weekday].sales=_weekI[d.weekday].sales + a;
+          _weekI[d.weekday-1].sales=_weekI[d.weekday-1].sales + a;
         }
         if (d.day == t.day && d.month == t.month && d.year == t.year) {
           _dayI[d.hour].sales=_dayE[d.hour].sales + a;
@@ -488,7 +488,7 @@ class _AnalysisState extends State<Analysis> {
         week = t.weekday;
         DateTime temp2=t.subtract(Duration(days: week));
         if (temp1.day==temp2.day && temp1.month==temp2.month && temp1.year==temp2.year) {
-          _weekE[d.weekday].sales=_weekE[d.weekday].sales + a;
+          _weekE[d.weekday-1].sales=_weekE[d.weekday-1].sales + a;
         }
         if (d.day == t.day && d.month == t.month && d.year == t.year) {
           _dayE[d.hour].sales=_dayE[d.hour].sales + a;
