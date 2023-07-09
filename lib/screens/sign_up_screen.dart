@@ -89,7 +89,7 @@ class _SignUpState extends State<SignUp> {
                           signUpUsingEmail();
                         },
                         child: Text(
-                          'Log In',
+                          'Sign Up',
                           style: const TextStyle(
                               color: Colors.black87,
                               fontWeight: FontWeight.bold,
