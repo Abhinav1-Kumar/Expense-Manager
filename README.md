@@ -1,6 +1,6 @@
 ## Expense_Manager
 
-A simple application designed to simplify the tracking of your day to day expenses using graph.
+A sample application designed to simplify the tracking of your day to day expenses using graph.
 
 ## Tech Stack
 * Flutter
